@@ -11,9 +11,9 @@ const canvas = document.querySelector("canvas.webgl");
 
 // Scene
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0x000);
-
-
+scene.background = new THREE.TextureLoader().load(
+  "https://sbcode.net/img/grid.png"
+);
 
 // Sizes
 const sizes = {
@@ -39,18 +39,17 @@ scene.add(camera);
  * Adding a base mesh
  */
 const side = 1;
-const geometry = new THREE.BoxGeometry(side,side,side, 8, 8, 8);
+const geometry = new THREE.BoxGeometry(side, side, side, 8, 8, 8);
 const material = new THREE.MeshNormalMaterial();
 const mesh = new THREE.Mesh(geometry, material);
 scene.add(mesh);
-
 
 // loading th star texture
 const textureLoader = new THREE.TextureLoader();
 const starTexture = textureLoader.load("/circle.png");
 
 // adding stars to the scene
-const stars = getStarfield({numStars: 1500, sprite: starTexture});
+const stars = getStarfield({ numStars: 1500, sprite: starTexture });
 scene.add(stars);
 
 /**
