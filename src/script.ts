@@ -11,9 +11,9 @@ const canvas = document.querySelector("canvas.webgl");
 
 // Scene
 const scene = new THREE.Scene();
-scene.background = new THREE.TextureLoader().load(
-  "https://sbcode.net/img/grid.png"
-);
+scene.background = new THREE.CubeTextureLoader()
+  .setPath("https://sbcode.net/img/")
+  .load(["px.png", "nx.png", "py.png", "ny.png", "pz.png", "nz.png"]);
 
 // Sizes
 const sizes = {
